@@ -8,11 +8,13 @@ public class Store {
         this.flowers = new ArrayList<Flower>();
     }
 
-    public void add_flower(Flower fl) {
+    public void addFlower(Flower fl) {
         this.flowers.add(fl);
     }
 
-    public Flower search(double sepalLength, FlowerColor color, FlowerType flowerType) {
+    public Flower search(double sepalLength, 
+                        FlowerColor color, 
+                        FlowerType flowerType) {
         for (int i = 0; i < flowers.size(); ++i) {
             if (flowers.get(i).getSepalLength() != sepalLength) {
                 continue;

@@ -8,7 +8,7 @@ public class FlowerBucket {
         this.flowerPacks = new ArrayList<FlowerPack>();
     }
 
-    public void add (FlowerPack flowerPack) {
+    public void add(FlowerPack flowerPack) {
         this.flowerPacks.add(flowerPack);
     }
 
