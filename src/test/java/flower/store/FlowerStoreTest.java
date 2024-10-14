@@ -7,9 +7,9 @@ import org.junit.jupiter.api.Assertions;
 
 public class FlowerStoreTest {
 
-    private static final double SEPAL1 = 1;
-    private static final double SEPAL2 = 2;
-    private static final double SEPAL3 = 3;
+    private static final double SEPALONE = 1;
+    private static final double SEPALTWO = 2;
+    private static final double SEPALTHREE = 3;
 
     private Store flowerStore;
     private Rose rose;
@@ -21,11 +21,11 @@ public class FlowerStoreTest {
         flowerStore = new Store();
 
         rose = new Rose();
-        rose.setSepalLength(SEPAL1);
+        rose.setSepalLength(SEPALONE);
         tulip = new Tulip();
-        tulip.setSepalLength(SEPAL2);
+        tulip.setSepalLength(SEPALTWO);
         cham = new Chamomile();
-        cham.setSepalLength(SEPAL3);
+        cham.setSepalLength(SEPALTHREE);
 
         flowerStore.addFlower(rose);
         flowerStore.addFlower(tulip);
@@ -36,15 +36,15 @@ public class FlowerStoreTest {
     @Test
     public void testSearchSuccess() {
 
-        Assertions.assertEquals(flowerStore.search(SEPAL1, 
+        Assertions.assertEquals(flowerStore.search(SEPALONE, 
                                             FlowerColor.RED, 
                                             FlowerType.ROSE), rose);
 
-        Assertions.assertEquals(flowerStore.search(SEPAL2, 
+        Assertions.assertEquals(flowerStore.search(SEPALTWO, 
                                             FlowerColor.PINK, 
                                             FlowerType.TULIP), tulip);
 
-        Assertions.assertEquals(flowerStore.search(SEPAL3, 
+        Assertions.assertEquals(flowerStore.search(SEPALTHREE, 
                                             FlowerColor.WHITE, 
                                             FlowerType.CHAMOMILE), cham);
     }
@@ -55,11 +55,11 @@ public class FlowerStoreTest {
             FlowerColor.RED, 
             FlowerType.ROSE));
         
-        Assertions.assertNull(flowerStore.search(SEPAL2, 
+        Assertions.assertNull(flowerStore.search(SEPALTWO, 
             FlowerColor.BLUE, 
             FlowerType.TULIP));
         
-        Assertions.assertNull(flowerStore.search(SEPAL3, 
+        Assertions.assertNull(flowerStore.search(SEPALTHREE, 
             FlowerColor.WHITE, 
             FlowerType.ROSE));
     }
