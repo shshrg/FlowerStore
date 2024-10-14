@@ -7,6 +7,10 @@ import org.junit.jupiter.api.Assertions;
 
 public class FlowerStoreTest {
 
+    private static final double SEPAL1 = 1;
+    private static final double SEPAL2 = 2;
+    private static final double SEPAL3 = 3;
+
     private Store flowerStore;
     private Rose rose;
     private Tulip tulip;
@@ -17,11 +21,11 @@ public class FlowerStoreTest {
         flowerStore = new Store();
 
         rose = new Rose();
-        rose.setSepalLength(1);
+        rose.setSepalLength(SEPAL1);
         tulip = new Tulip();
-        tulip.setSepalLength(2);
+        tulip.setSepalLength(SEPAL2);
         cham = new Chamomile();
-        cham.setSepalLength(2.5);
+        cham.setSepalLength(SEPAL3);
 
         flowerStore.addFlower(rose);
         flowerStore.addFlower(tulip);
@@ -32,15 +36,15 @@ public class FlowerStoreTest {
     @Test
     public void testSearchSuccess() {
 
-        Assertions.assertEquals(flowerStore.search(1, 
+        Assertions.assertEquals(flowerStore.search(SEPAL1, 
                                             FlowerColor.RED, 
                                             FlowerType.ROSE), rose);
 
-        Assertions.assertEquals(flowerStore.search(2, 
+        Assertions.assertEquals(flowerStore.search(SEPAL2, 
                                             FlowerColor.PINK, 
                                             FlowerType.TULIP), tulip);
 
-        Assertions.assertEquals(flowerStore.search(2.5, 
+        Assertions.assertEquals(flowerStore.search(SEPAL3, 
                                             FlowerColor.WHITE, 
                                             FlowerType.CHAMOMILE), cham);
     }
@@ -51,11 +55,11 @@ public class FlowerStoreTest {
             FlowerColor.RED, 
             FlowerType.ROSE));
         
-        Assertions.assertNull(flowerStore.search(2, 
+        Assertions.assertNull(flowerStore.search(SEPAL2, 
             FlowerColor.BLUE, 
             FlowerType.TULIP));
         
-        Assertions.assertNull(flowerStore.search(2.5, 
+        Assertions.assertNull(flowerStore.search(SEPAL3, 
             FlowerColor.WHITE, 
             FlowerType.ROSE));
     }
