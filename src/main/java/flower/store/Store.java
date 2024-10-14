@@ -1,20 +1,29 @@
 package flower.store;
+import java.util.ArrayList;
 
 public class Store {
-    private Flower[] flowers;
+    private ArrayList<Flower> flowers;
+
+    public Store() {
+        this.flowers = new ArrayList<Flower>();
+    }
+
+    public void add_flower(Flower fl) {
+        this.flowers.add(fl);
+    }
 
     public Flower search(double sepalLength, FlowerColor color, FlowerType flowerType) {
-        for (Flower fl : flowers) {
-            if (fl.getSepalLength() != sepalLength) {
+        for (int i = 0; i < flowers.size(); ++i) {
+            if (flowers.get(i).getSepalLength() != sepalLength) {
                 continue;
             }
-            if (fl.getColor() != color.toString()) {
+            if (flowers.get(i).getColor() != color.toString()) {
                 continue;
             }
-            if (fl.getFlowerType() != flowerType) {
+            if (!flowers.get(i).getFlowerType().equals(flowerType)) {
                 continue;
             }
-            return fl;
+            return flowers.get(i);
         }
         return null;
     }
